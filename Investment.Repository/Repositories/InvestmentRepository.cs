@@ -16,7 +16,7 @@ namespace Investment.Repository.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<InvestmentTransaction>> GetInvestmentsByProjectIdAsync(int projectId)
+        public async Task<IEnumerable<InvestmentTransaction>> GetInvestmentsByProjectIdAsync(Guid projectId)
         {
             return await _context.Investments
                 .Where(i => i.ProjectId == projectId)

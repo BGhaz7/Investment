@@ -6,7 +6,7 @@ namespace Investment.Repository.Interfaces
 {
     public interface IInvestmentRepository
     {
-        Task<IEnumerable<InvestmentTransaction>> GetInvestmentsByProjectIdAsync(int projectId);
+        Task<IEnumerable<InvestmentTransaction>> GetInvestmentsByProjectIdAsync(Guid projectId);
         Task AddInvestmentAsync(InvestmentTransaction investment);
     }
 }

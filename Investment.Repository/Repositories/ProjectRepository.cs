@@ -2,6 +2,7 @@
 using Investment.Repository.DbContext;
 using Investment.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,19 +17,26 @@ namespace Investment.Repository.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Project>> GetProjectsAsync()
+        public async Task<Project> AddProjectAsync(Project project)
         {
-            return await _context.Projects.ToListAsync();
+            await _context.Projects.AddAsync(project);
+            await _context.SaveChangesAsync();
+            return project;
         }
 
-        public async Task<Project> GetProjectByIdAsync(int id)
+        public async Task<Project> GetProjectByIdAsync(Guid id)
         {
             return await _context.Projects.FindAsync(id);
         }
 
-        public async Task AddProjectAsync(Project project)
+        public async Task<IEnumerable<Project>> GetAllProjectsAsync()
         {
-            await _context.Projects.AddAsync(project);
+            return await _context.Projects.ToListAsync();
+        }
+
+        public async Task UpdateProjectAsync(Project project)
+        {
+            _context.Projects.Update(project);
             await _context.SaveChangesAsync();
         }
     }

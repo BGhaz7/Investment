@@ -15,7 +15,7 @@ namespace Investment.Service.Services
             _projectRepository = projectRepository;
         }
 
-        public async Task<IEnumerable<InvestmentTransaction>> GetInvestmentByIdAsync(int projectId)
+        public async Task<IEnumerable<InvestmentTransaction>> GetInvestmentByIdAsync(Guid projectId)
         {
             return await _investmentRepository.GetInvestmentsByProjectIdAsync(projectId);
         }
@@ -25,7 +25,7 @@ namespace Investment.Service.Services
             await _investmentRepository.AddInvestmentAsync(investmentTransaction);
         }
         
-        public async Task InvestAsync(int userId, int projectId, decimal amount)
+        public async Task InvestAsync(int userId, Guid projectId, decimal amount)
         {
             var project = await _projectRepository.GetProjectByIdAsync(projectId);
             if (project == null)
@@ -37,6 +37,7 @@ namespace Investment.Service.Services
 
             var investment = new InvestmentTransaction
             {
+                InvestmentId = Guid.NewGuid(),
                 UserId = userId,
                 ProjectId = projectId,
                 Amount = amount,

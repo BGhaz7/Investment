@@ -6,7 +6,7 @@ namespace Investment.Models.Entities
     public class Project
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         [Required]
         public string Name { get; set; }
         public decimal TargetAmount { get; set; }
