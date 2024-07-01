@@ -1,14 +1,11 @@
-﻿using Investment.Models.Entities;
+﻿using System.Security.Claims;
+using Investment.Models.Dtos;
+using Investment.Models.Entities;
 using Investment.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Investment.Models.Dtos;
 
-namespace Investment.API.Controllers
+namespace Investment.Controllers
 {
     [ApiController]
     [Route("v1")]
@@ -28,10 +25,21 @@ namespace Investment.API.Controllers
             {
                 return BadRequest("Project data is required.");
             }
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("User ID not found in token.");
+            }
 
+            if (!int.TryParse(userIdClaim.Value, out var userId))
+            {
+                return BadRequest("Invalid user ID in token.");
+            }
+            //Where do I create the object body.
             var project = new Project
             {
                 Name = projectDto.Name,
+                UserId = userId,
                 TargetAmount = projectDto.TargetAmount,
                 CurrentAmount = 0, // Initialize with 0 as it's a new project
                 Description = projectDto.Description,
