@@ -8,6 +8,7 @@ using Investment.Service.Services;
 using System.Text;
 using Investment.Repository.Interfaces;
 using Investment.Repository.Repositories;
+using Portfolio.Repository.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,7 @@ builder.Services.AddScoped<IInvestmentRepository, InvestmentRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 
-var bus = RabbitHutch.CreateBus("host=localhost");
+var bus = RabbitHutch.CreateBus("host=rabbitmq");
 builder.Services.AddSingleton(bus);
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -39,6 +40,7 @@ builder.Services.AddControllers();
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+DbMgmt.MigrationInit(app);
 
 app.UseAuthentication();
 app.UseAuthorization();
