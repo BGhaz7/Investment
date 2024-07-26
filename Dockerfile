@@ -9,6 +9,7 @@ COPY ["Investment.API/Investment.API.csproj", "Investment.API/"]
 COPY ["Investment.Models/Investment.Models.csproj", "Investment.Models/"]
 COPY ["Investment.Repository/Investment.Repository.csproj", "Investment.Repository/"]
 COPY ["Investment.Service/Investment.Service.csproj", "Investment.Service/"]
+COPY ["Shared/Shared.csproj", "Shared/"]
 RUN dotnet restore "Investment.API/Investment.API.csproj"
 COPY . .
 WORKDIR "/src/Investment.API"

@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<InvestmentContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostGresConnectionString")));
-
+builder.Services.AddSingleton(RabbitHutch.CreateBus("host=rabbitmq"));
 builder.Services.AddScoped<IInvestmentService, InvestmentService>();
 builder.Services.AddScoped<IInvestmentRepository, InvestmentRepository>();
 builder.Services.AddScoped<IProjectService, ProjectService>();

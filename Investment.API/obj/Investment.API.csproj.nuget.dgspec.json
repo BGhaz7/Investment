@@ -1,35 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.API\\Investment.API.csproj": {}
+    "/Users/badr/RiderProjects/Investment/Investment.API/Investment.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.API\\Investment.API.csproj": {
+    "/Users/badr/RiderProjects/Investment/Investment.API/Investment.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.API\\Investment.API.csproj",
+        "projectUniqueName": "/Users/badr/RiderProjects/Investment/Investment.API/Investment.API.csproj",
         "projectName": "Investment.API",
-        "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.API\\Investment.API.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.API\\obj\\",
+        "projectPath": "/Users/badr/RiderProjects/Investment/Investment.API/Investment.API.csproj",
+        "packagesPath": "/Users/badr/.nuget/packages/",
+        "outputPath": "/Users/badr/RiderProjects/Investment/Investment.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\Investment.Service.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\Investment.Service.csproj"
+              "/Users/badr/RiderProjects/Investment/Investment.Service/Investment.Service.csproj": {
+                "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Service/Investment.Service.csproj"
+              },
+              "/Users/badr/RiderProjects/Investment/Shared/Shared.csproj": {
+                "projectPath": "/Users/badr/RiderProjects/Investment/Shared/Shared.csproj"
               }
             }
           }
@@ -108,28 +109,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj": {
+    "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj",
+        "projectUniqueName": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
         "projectName": "Investment.Models",
-        "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\obj\\",
+        "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
+        "packagesPath": "/Users/badr/.nuget/packages/",
+        "outputPath": "/Users/badr/RiderProjects/Investment/Investment.Models/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -201,36 +200,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\Investment.Repository.csproj": {
+    "/Users/badr/RiderProjects/Investment/Investment.Repository/Investment.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\Investment.Repository.csproj",
+        "projectUniqueName": "/Users/badr/RiderProjects/Investment/Investment.Repository/Investment.Repository.csproj",
         "projectName": "Investment.Repository",
-        "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\Investment.Repository.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\obj\\",
+        "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Repository/Investment.Repository.csproj",
+        "packagesPath": "/Users/badr/.nuget/packages/",
+        "outputPath": "/Users/badr/RiderProjects/Investment/Investment.Repository/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj"
+              "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj": {
+                "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj"
               }
             }
           }
@@ -298,39 +295,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\Investment.Service.csproj": {
+    "/Users/badr/RiderProjects/Investment/Investment.Service/Investment.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\Investment.Service.csproj",
+        "projectUniqueName": "/Users/badr/RiderProjects/Investment/Investment.Service/Investment.Service.csproj",
         "projectName": "Investment.Service",
-        "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\Investment.Service.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Service\\obj\\",
+        "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Service/Investment.Service.csproj",
+        "packagesPath": "/Users/badr/.nuget/packages/",
+        "outputPath": "/Users/badr/RiderProjects/Investment/Investment.Service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/badr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Models\\Investment.Models.csproj"
+              "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj": {
+                "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj"
               },
-              "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\Investment.Repository.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\RiderProjects\\Investment\\Investment.Repository\\Investment.Repository.csproj"
+              "/Users/badr/RiderProjects/Investment/Investment.Repository/Investment.Repository.csproj": {
+                "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Repository/Investment.Repository.csproj"
               }
             }
           }
@@ -398,7 +393,60 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/badr/RiderProjects/Investment/Shared/Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/badr/RiderProjects/Investment/Shared/Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "/Users/badr/RiderProjects/Investment/Shared/Shared.csproj",
+        "packagesPath": "/Users/badr/.nuget/packages/",
+        "outputPath": "/Users/badr/RiderProjects/Investment/Shared/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/badr/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

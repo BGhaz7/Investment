@@ -1,9 +1,12 @@
-﻿using System.Security.Claims;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using EasyNetQ;
 using Investment.Models.Dtos;
 using Investment.Models.Entities;
 using Investment.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Messages;
 
 namespace Investment.Controllers
 {
@@ -12,10 +15,12 @@ namespace Investment.Controllers
     public class ProjectController : ControllerBase
     {
         private readonly IProjectService _projectService;
+        private readonly IBus _bus;
 
-        public ProjectController(IProjectService projectService)
+        public ProjectController(IProjectService projectService, IBus bus)
         {
             _projectService = projectService;
+            _bus = bus;
         }
 
         [HttpPost("project")]
@@ -25,28 +30,45 @@ namespace Investment.Controllers
             {
                 return BadRequest("Project data is required.");
             }
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-                         if (userIdClaim == null)
-                         {
-                             return Unauthorized("User ID not found in token.");
-                         }
-             
-                         if (!int.TryParse(userIdClaim.Value, out var userId))
-                         {
-                             return BadRequest("Invalid user ID in token.");
-                         }
-            //Where do I create the object body.
-            var project = new Project
+            var authHeader = Request.Headers["Authorization"].ToString();
+            if (string.IsNullOrEmpty(authHeader))
             {
-                Name = projectDto.Name,
-                UserId = userId,
-                TargetAmount = projectDto.TargetAmount,
-                CurrentAmount = 0, // Initialize with 0 as it's a new project
-                Description = projectDto.Description,
-            };
+                return Unauthorized("Authorization header is missing.");
+            }
 
-            var createdProject = await _projectService.AddProjectAsync(project);
-            return CreatedAtAction(nameof(GetProjectById), new { id = createdProject.Id }, createdProject);
+            var token = authHeader.Substring("Bearer ".Length).Trim();
+
+            // Read the token and extract claims
+            var handler = new JwtSecurityTokenHandler();
+            if (handler.ReadToken(token) is JwtSecurityToken jsonToken)
+            {
+                var nameIdClaim =
+                    jsonToken.Claims.FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.NameId);
+
+                if (nameIdClaim == null)
+                {
+                    return Unauthorized("User ID not found in token.");
+                }
+
+                if (!int.TryParse(nameIdClaim.Value, out var userId))
+                {
+                    return BadRequest("Invalid user ID in token.");
+                }
+                //Where do I create the object body.
+                var project = new Project
+                {
+                    Name = projectDto.Name,
+                    UserId = userId,
+                    TargetAmount = projectDto.TargetAmount,
+                    CurrentAmount = 0, // Initialize with 0 as it's a new project
+                    Description = projectDto.Description,
+                };
+                var createdProject = await _projectService.AddProjectAsync(project);
+                return CreatedAtAction(nameof(GetProjectById), new { id = createdProject.Id }, createdProject);
+            }
+
+            return BadRequest("Invalid Token");
+
         }
 
         [HttpGet("projects")]
@@ -65,30 +87,57 @@ namespace Investment.Controllers
                 return BadRequest("Investment data is required.");
             }
 
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
-            if (userIdClaim == null)
+            var authHeader = Request.Headers["Authorization"].ToString();
+            if (string.IsNullOrEmpty(authHeader))
             {
-                return Unauthorized("User ID not found in token.");
+                return Unauthorized("Authorization header is missing.");
             }
 
-            if (!int.TryParse(userIdClaim.Value, out var userId))
+            var token = authHeader.Substring("Bearer ".Length).Trim();
+
+            // Read the token and extract claims
+            var handler = new JwtSecurityTokenHandler();
+            if (handler.ReadToken(token) is JwtSecurityToken jsonToken)
             {
-                return BadRequest("Invalid user ID in token.");
+                var nameIdClaim =
+                    jsonToken.Claims.FirstOrDefault(claim => claim.Type == JwtRegisteredClaimNames.NameId);
+
+                if (nameIdClaim == null)
+                {
+                    return Unauthorized("User ID not found in token.");
+                }
+
+                if (!int.TryParse(nameIdClaim.Value, out var userId))
+                {
+                    return BadRequest("Invalid user ID in token.");
+                }
+                try
+                {
+                    await _projectService.InvestInProjectAsync(investTransactDto.ProjectId, userId, investTransactDto.Amount);
+                    var InvestMessage = new InvestMessage
+                    {
+                        userId = userId,
+                        amount = investTransactDto.Amount
+                    };
+                    var success = await _bus.Rpc.RequestAsync<InvestMessage, bool>(InvestMessage);
+                    Console.WriteLine($"Sent message: {InvestMessage}");
+                    if (success)
+                    {
+                        return Ok("Investment successful.");
+                    }
+                    return StatusCode(402, "Insufficient funds for investment.");
+                }
+                catch (KeyNotFoundException ex)
+                {
+                    return NotFound(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    return StatusCode(500, $"Internal server error: {ex.Message}");
+                }
             }
 
-            try
-            {
-                await _projectService.InvestInProjectAsync(investTransactDto.ProjectId, userId, investTransactDto.Amount);
-                return Ok("Investment successful.");
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
+            return BadRequest("Invalid Token");
         }
 
         [HttpGet("project/{id}")]
