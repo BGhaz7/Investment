@@ -113,16 +113,16 @@ namespace Investment.Controllers
                 }
                 try
                 {
-                    await _projectService.InvestInProjectAsync(investTransactDto.ProjectId, userId, investTransactDto.Amount);
-                    var InvestMessage = new InvestMessage
+                    var investMessage = new InvestMessage
                     {
                         userId = userId,
                         amount = investTransactDto.Amount
                     };
-                    var success = await _bus.Rpc.RequestAsync<InvestMessage, bool>(InvestMessage);
-                    Console.WriteLine($"Sent message: {InvestMessage}");
+                    Console.WriteLine($"Sent message: {investMessage}");
+                    var success = await _bus.Rpc.RequestAsync<InvestMessage, bool>(investMessage);
                     if (success)
                     {
+                        await _projectService.InvestInProjectAsync(investTransactDto.ProjectId, userId, investTransactDto.Amount);
                         return Ok("Investment successful.");
                     }
                     return StatusCode(402, "Insufficient funds for investment.");

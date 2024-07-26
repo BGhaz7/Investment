@@ -2756,19 +2756,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/badr/.nuget/packages/": {}
+    "/Users/badrghazwani/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
+      "projectUniqueName": "/Users/badrghazwani/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
       "projectName": "Investment.Models",
-      "projectPath": "/Users/badr/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
-      "packagesPath": "/Users/badr/.nuget/packages/",
-      "outputPath": "/Users/badr/RiderProjects/Investment/Investment.Models/obj/",
+      "projectPath": "/Users/badrghazwani/RiderProjects/Investment/Investment.Models/Investment.Models.csproj",
+      "packagesPath": "/Users/badrghazwani/.nuget/packages/",
+      "outputPath": "/Users/badrghazwani/RiderProjects/Investment/Investment.Models/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/badr/.nuget/NuGet/NuGet.Config"
+        "/Users/badrghazwani/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2845,7 +2845,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/Users/badrghazwani/.dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
